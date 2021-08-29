@@ -1,1 +1,2 @@
 # UFEA-Lovers
+Building a basic informative UFEA website for UFEA Lovers. Building informative website which does a deep dive on the sport of Football. The website is mainly dedicated to the UFEA Champions League (UCL). Through this website peoples can check the latest scores and can become aware of the upcoming fixtures and also get updated about the sport. The website also provides an overview of the information of different teams.
