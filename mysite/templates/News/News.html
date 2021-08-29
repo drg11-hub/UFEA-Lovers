@@ -1,0 +1,70 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %} News {% endblock title %}
+{% block Newsactive %}active{% endblock Newsactive %}
+{% block body %}
+<style>
+div.fixtures{
+    background-color: #FFD700;
+}
+th,td {
+  border :2px solid olive;
+  height: 200px;
+  width: 25%;
+}
+.tab img {
+  height: 100px;
+  width: 300px;
+}
+.onvideo{
+  position: relative;
+  
+  text-align: center;
+  color: white;
+}
+.centered{
+  position: absolute;
+  /*border: 1px white;*/
+  font-size: 50px;
+  top: 5.5%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-shadow: 3px 1px grey;
+}
+
+</style>
+<div class="fixtures">
+<center><h3><b>Latest News about UFEA!</b></h3></center>
+<center>
+		<h1>UPCOMING FIXTURES</h1>
+		<br>
+	<table  class='tab' width='100%' height='100%'>
+		<!-- <tr>
+			<th>TEAM A</th>
+			<th>AGAINST</th>
+			<th>TEAM B</th>
+		</tr> -->
+<tr>
+    <td><div><img src="{% static 'images/game1.png' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>1 Feb 2020</p></div></td>
+   <td><div><img src="{% static 'images/game2.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>3 Feb 2020</p></div></td>
+    <td><div><img src="{% static 'images/game3.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>5 Feb 2020</p></div></td>
+    <td><div><img src="{% static 'images/game4.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>7 Feb 2020</p></div></td>
+<tr>
+    <td><div><img src="{% static 'images/game5.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>9 Feb 2020</p></div></td>
+    <td><div><img src="{% static 'images/game6.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>11 Feb 2020</p></div></td>
+    <td><div><img src="{% static 'images/game7.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>13 Feb 2020</p></div></td>
+    <td><div><img src="{% static 'images/game8.jpg' %}">
+    <p><a href="#">MATCH DETAILS</a><br>UCL Round of 16<br><br>15 Feb 2020</p></div></td>
+</tr>
+	</table>
+	</center>
+	<br><br><br>
+    </div>
+{% endblock body %}

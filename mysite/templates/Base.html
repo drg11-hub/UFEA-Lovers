@@ -1,0 +1,245 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title> {% block title %} {% endblock title %} </title>
+</head>
+<link rel="stylesheet" href="{% static 'styling/style1.css' %}">
+<style>
+    body {
+        background-image: url("{% static 'images/img1.jpg' %}");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        background-position: center;
+        height: 315px;
+    }
+</style>
+
+<body>
+    <br><br><br><br><br><br>
+    <br><br><br><br><br><br><br>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/">UFEA</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item {% block Homeactive %}{% endblock Homeactive %}">
+                    <a class="nav-link" href="/">Home<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item {% block Newsactive %}{% endblock Newsactive %}">
+                    <a class="nav-link" href="/News">News</a>
+                </li>
+                <li class="nav-item {% block Contact_usactive %}{% endblock Contact_usactive %}">
+                    <a class="nav-link" href="/Contact_us">Contact_us</a>
+                </li>
+                <li class="nav-item {% block About_usactive %}{% endblock About_usactive %}">
+                    <a class="nav-link" href="/About_us">About_us</a>
+                </li>
+                <!--<li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dropdown
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Action</a>
+                <a class="dropdown-item" href="#">Another action</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Something else here</a>
+              </div>
+            </li>-->
+            </ul>
+            <div class="ml-auto form-inline">
+                <form class="my-2 my-lg-0">
+                    <input class="form-control mr-sm-2" type="search" placeholder="Search..." aria-label="Search">
+                    <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                {% if user.is_authenticated %}
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Logged-In as {{request.user}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="/Profile" method="get">Profile</a>
+                            <a class="dropdown-item" href="/Logout" method="post">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+                {% else %}
+                <button type="button" class="btn btn-outline-warning mx-3" data-toggle="modal"
+                    data-target="#loginmodal">Login</button>
+                <button type="button" class="btn btn-outline-warning mx-1.5" data-toggle="modal"
+                    data-target="#signupmodal">Signup</button>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!--Signup Modal-->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="signupmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="signupmodal">Signup</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <center>
+                            <h3><b><i>Please Enter Your Details.</i></b></h3>
+                        </center>
+                        <form action="/Signup" method='post'>
+                            {% csrf_token %}
+                            <b>
+                                <label for="First_name">First Name: </label>
+                                <input type="text" name="F_name" placeholder="First Name" style="border-radius: 5px"
+                                    required></input>
+                                <br><br>
+                                <label for="First_name">Last Name: </label>
+                                <input type="text" name="L_name" placeholder="Last Name" style="border-radius: 5px"
+                                    required></input>
+                                <br><br>
+                                <label for="Username">UserName: </label>
+                                <input type="text" name="Signup_U_name" placeholder="Enter Username"
+                                    style="border-radius: 5px" required></input>
+                                <br><br>
+                                <label for="Password">Password: </label>
+                                <input type="password" name="pwd1" placeholder="Enter Password"
+                                    style="border-radius: 5px" required></input>
+                                <br><br>
+                                <label for="Password">Confirm Password: </label>
+                                <input type="password" name="pwd2" placeholder="Re-enter Password"
+                                    style="border-radius: 5px" required></input>
+                                <br><br>
+                                <label for="email-address">Email Address: </label>
+                                <input type="email" name="signup_email" id="signup_email" placeholder="acb@xyz.com"
+                                    style="border-radius: 5px" required="">
+                                <br><br>
+                                <label for="Contact">Contact Number: </label>
+                                <input type="phone" name="contact" id="contact" style="border-radius: 5px"
+                                    placeholder="+91 987654321">
+                                <br><br>
+                                <!--<label for="Address">Address:</label><br>
+                    <textarea name="Text1" cols="50" rows="3" required name="ADDRESS" style="border-radius: 5px" placeholder="Enter Your Address Here..." style="border-radius: 5px"></textarea>
+                    <br><br>-->
+                                <label for="DOB">Date OF Birth:</label>
+                                <input type="date" name="DOB" style="border-radius: 5px" required></input>
+                                <br><br>
+                                <label for="Gender">Gender: </label>
+                                <input type="radio" name="gender" style="border-radius: 5px" value="Male">Male</input>
+                                <input type="radio" name="gender" style="border-radius: 5px"
+                                    value="Female">Female</input>
+                                <br><br>
+                                <label for="Status">Status: </label><br>
+                                <textarea cols="45" rows="5" name="Status" id="Status"
+                                    placeholder="Write Something about Your Love towards Football..."
+                                    style="border-radius: 5px" required=""></textarea>
+                                <!--<input type="hidden" name="_subject" id="email-subject" value="Complaint Form Submission">-->
+                                <hr>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <input type="submit" value="Submit">
+                            </b>
+                            <br>
+                        </form>
+                </div>
+                <div class="modal-footer">
+                    <!--<button type="Reset" class="btn btn-primary">Reset</button>-->
+                    <!--<button type="submit" class="btn btn-primary">Submit</button>-->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Login Modal-->
+    <!-- Button trigger modal -->
+
+    <!-- Modal -->
+    <div class="modal fade" id="loginmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="loginmodal">Login</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>
+                        <h3><b><i>Please Enter Your Details.</i></b></h3>
+                        <form action="/Login" method="post">
+                        {% csrf_token %}
+                            </center>
+                            <fieldset><b>
+                                    <label for="Username">UserName: </label>
+                                    <input type="text" name="Login_U_name" placeholder="Enter Username"
+                                        style="border-radius: 5px" required></input>
+                                    <br><br>
+                                    <label for="email-address">Email Address: </label>
+                                    <input type="email" name="login_email" id="login_email" placeholder="acb@xyz.com"
+                                        style="border-radius: 5px">
+                                    <br><br>
+                                    <label for="Password">Password: </label>
+                                    <input type="password" name="login_pwd" placeholder="Enter Password"
+                                        style="border-radius: 5px" required></input>
+                                    <br><br>
+                                    <hr>
+                                    <hr>
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <input type="submit" value="Submit">
+                                </b></fieldset>
+                        </form>
+                    </p>
+                </div>
+                <div class="modal-footer">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+        <strong>NOTE -> </strong>{{ message }}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {% endfor %}
+
+    {% block body %}
+    {% endblock body %}
+
+</body>
+
+</html>

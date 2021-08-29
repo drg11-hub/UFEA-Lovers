@@ -1,0 +1,19 @@
+
+body{
+    font-family: Courier;
+    font-style: oblique;
+}
+
+img{
+    width: 10%;
+}
+
+form{
+    text-align: left;
+}
+
+fieldset{
+    width: 500px;
+    margin: 0 auto;
+    text-align: left;
+}

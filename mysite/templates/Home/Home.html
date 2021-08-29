@@ -1,0 +1,87 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+{% block Homeactive %}active{% endblock Homeactive %}
+{% block body %}
+<style>
+    div.ufea_home{
+        background-color: maroon;
+    }
+
+    th,td {
+        border: 2px solid mistyrose;
+    }
+
+    .tab img {
+        opacity: 0.5;
+        filter: alpha(opacity=50);
+    }
+
+    .tab img:hover {
+        opacity: 1.0;
+        filter: alpha(opacity=100);
+    }
+
+    .onvideo {
+        position: relative;
+
+        text-align: center;
+        color: white;
+    }
+
+    .centered {
+        position: absolute;
+        /*border: 1px white;*/
+        font-size: 50px;
+        top: 5.5%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 3px 1px grey;
+    }
+
+    p {
+        display: none;
+        background-color: slategrey;
+        padding: 20px;
+        color: solid mistyrose;
+</style>
+<center>
+    <h3><b>Welcome UFEA Lovers!<br>UEFA CHAMPIONS LEAGUE</b></h3>
+</center>
+<div class="ufea_home">
+<!--<ul>
+  <li><a href="https://www.uefa.com/uefachampionsleague/">UCL</a></li>
+  </ul>-->
+<!-- <h1><b><i>UCL LIVE</h1> -->
+<!-- <a href="https://www.facebook.com/ChampionsLeague/">Click Here </a> -->
+<center>
+        <img src="{% static 'images/ucl.jpg' %}" height="150px" width="200px">
+        <img src="{% static 'images/stadium.jpg' %}" height="150px" width="200px">
+        <img src="{% static 'images/main.jpg' %}" height="150px" width="200px">
+    </center>
+    <br>
+    <marquee loop>
+        <img src="{% static 'images/liv.png' %}" height="250px" width="200px">
+        <img src="{% static 'images/tot.jpg' %}" height="250px" width="200px">
+        <img src="{% static 'images/rm.jpg' %}" height="250px" width="200px">
+        <img src="{% static 'images/psg.png' %}" height="250px" width="200px">
+        <img src="{% static 'images/dortmund.jpg' %}" height="250px" width="300px">
+        <img src="{% static 'images/chelsea.png' %}" height="250px" width="200px">
+        <img src="{% static 'images/bay.jpg' %}" height="250px" width="300px">
+        <img src="{% static 'images/barca.png' %}" height="250px" width="200px">
+    </marquee>
+
+<div class='onvideo'>
+    <video class='onvideo' width="40%" height="30%" autoplay muted>
+        <source src="{% static 'images/video1.mp4' %}" type="video/mp4">
+    </video>
+    <!-- <tag attribute="value">Hello Guys...!!!!</tag> -->
+    <footer align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    UCL INDIA:- Copyrights Reserved
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Email Us: ucllive@gmail.com
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Contact Us: +91 900800123
+    </footer>
+</div>
+    {% endblock body %}

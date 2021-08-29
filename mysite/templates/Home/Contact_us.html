@@ -1,0 +1,37 @@
+{% extends 'Base.html' %}
+{% block title %}Contact_us{% endblock title %}
+{% block Contact_usactive %}active{% endblock Contact_usactive %}
+{% block body %}
+<center><h3><b>Contact Us</b></h3></center>
+<hr>
+<form id="Contact_us_form" name="Contact_us_form" accept-charset="utf-8" action="/Contact_us" method='POST'>
+    {% csrf_token %}
+    <fieldset><b>
+            <label for="Full-Name">Full Name: </label>
+            <input type="text" name="Full_name" placeholder="Full Name" style="border-radius: 5px" required></input>
+            <br><br>
+            <label for="email-addr">Email Address: </label>
+            <input type="email" name="email_addr" id="email_addr" placeholder="acb@xyz.com"
+                style="border-radius: 5px" required="">
+            <br><br>
+            <label for="Phone Number">Phone Number: </label>
+            <input type="phone" name="ph_no" id="ph_no" style="border-radius: 5px" placeholder="+91 987654321">
+            <br><br>
+            <!--<label for="Address">Address:</label><br>
+                    <textarea name="Text1" cols="50" rows="3" required name="ADDRESS" style="border-radius: 5px" placeholder="Enter Your Address Here..." style="border-radius: 5px"></textarea>
+                    <br><br>-->
+            <label for="Content">Content: </label><br>
+            <textarea cols="45" rows="5" name="Content" id="Content"
+                placeholder="Describe your Content.." style="border-radius: 5px"
+                required=""></textarea>
+            <!--<input type="hidden" name="_subject" id="email-subject" value="Complaint Form Submission">-->
+        </b></fieldset>
+    <br>
+    <hr>
+    <center>
+    <input type="submit" style="border-radius: 5px" value="Submit">
+    <input type="reset" style="border-radius: 5px" value="Reset">
+    </center>
+    <hr>
+</form>
+{% endblock body %}

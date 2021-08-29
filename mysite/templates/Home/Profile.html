@@ -1,0 +1,27 @@
+{% extends 'Base.html' %}
+{% block title %}Profile{% endblock title %}
+
+{% block body %}
+    <p align="center" style="color: magenta;"><b><i><u> PERSONAL INFORMATION</u></i></b></p><br><br>
+        <label for="F_name"><i class="fa fa-user" id="F_name" name="F_name"></i>&nbsp;&nbsp;&nbsp;Full Name</label>
+        {{ users.First_Name }}&nbsp;{{ request.users.F_name }}<br><hr><br>
+
+        <label for="Addr"><i class="fa fa-envelope" id='Addr' name="Addr"></i>&nbsp;&nbsp;&nbsp;E-Mail</label>
+        {{ users.Email }}<br><hr><br>
+        
+        <label for="Cons"><i class="fa fa-mobile" id="Cons" name="Cons"></i>&nbsp;&nbsp;&nbsp;Phone Number</label>
+        {{ users.Contact }}<br><hr><br>
+
+        <label for="Gndrs"><i class="fa fa-mobile" id="Gndrs" name="Gndrs"></i>&nbsp;&nbsp;&nbsp;Gender</label>
+        {{ users.get_Gender_display}}
+<!--<center><h3><b>Your Profile</b></h3></center>
+First Name : {{request.user}}<br>
+Username : {{request.user.username}}<br>
+Email : {{request.user.}}<br>
+Address : {{request.user.username}}<br>
+Contact No. : {{request.user.username}}<br>
+Date of Birth : {{request.user.username}}<br>
+Gender : {{request.user.username}}<br>
+Status : {{request.user.username}}<br>
+<button type="button" class="btn btn-outline-warning mx-3" method="/edit" action="post">Edit</button>-->
+{% endblock body %}

@@ -1,0 +1,95 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block title %}About_us{% endblock title %}
+{% block About_usactive %}active{% endblock About_usactive %}
+{% block body %}
+<style>
+    div.newspaper{
+        background-color: darkorchid;
+    }
+
+    .col {
+        column-count: 3;
+        column-gap: 40px;
+        column-rule-style: solid;
+        column-rule-width: 1px;
+        font-size: 25px;
+        color: black;
+
+    }
+
+    img {
+        column-span: all;
+        width: 300px;
+        height: 150px;
+        border: 5px solid grey;
+    }
+
+    footer {
+        color: olive;
+        height: 40px;
+        background: black;
+    }
+
+    .grid-container {
+        display: grid;
+        grid-template-columns: auto auto auto;
+    }
+
+    .grid-item {
+        transition: 1s;
+        background-color: rgba(255, 255, 255, 0.8);
+        border: 2px solid cyan;
+        margin: 25px;
+        font-size: 15px;
+        /*text-align: center;*/
+    }
+
+    .grid-item:hover {
+        border: 10px solid lightgreen;
+    }
+
+    audio {
+        border-radius: 25px;
+        margin-left: 30px;
+        margin-top: 30px;
+        border: 2px solid black;
+    }
+</style>
+<center><h3><b>About UFEA!</b></h3></center>
+<div class="newspaper">
+    <center><img src="{% static 'images/finals.jpg' %}"><br><br></center>
+    <div class="col">
+        UEFA Champions League winners Liverpool have an extra incentive to defend their title in 2019/20 as the final
+        returns to Istanbul's Atatürk Olimpiyat Stadı – a legendary venue in Liverpool lore.<br>
+        Gdansk to host 2020 Europa League final.<br>
+        Porto to host 2020 UEFA Super Cup<br>
+        Vienna to host 2020 women's final<br>
+        The home of the Turkish national team, the Atatürk Olimpiyat Stadı is the country's largest stadium, and
+        famously staged the 2005 UEFA Champions League decider, when Liverpool came from 3-0 down at half-time to beat
+        AC Milan on penalties.
+        Named in honour of Kemal Atatürk, founder of the Republic of Turkey, the venue was opened in 2002 and has held
+        major athletics events – and a U2 concert – as well as being a home for Istanbul clubs Galatasaray (2003/04),
+        İstanbul Başakşehir (2007–14) and Beşiktaş (2013–16).
+    </div><br><br>
+    <div class="grid-container">
+        <div class="grid-item">
+            <p><b><i>&nbsp;&nbsp;<u>FINALS UEFA CHAMPIONS LEAGUE 2020: ISTANBUL</u></i></b></p><br><br>
+            <center><img src="{% static 'images/istanbul.jpg' %}"></center>
+        </div>&nbsp;&nbsp;&nbsp;
+        <div class="grid-item" style="padding:10px; width:500px; height:300px;">
+            <p><b><i>&nbsp;&nbsp;&nbsp;<u>FINALS UEFA CHAMPIONS LEAGUE 2020: THEME SONG</u></i></b></p>
+            <center><audio controls>
+                <source src="{% static 'images/uclsong.mp3'%}" type="audio/mpeg"></audio><br><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;<img src={% static 'images/champions.jpg' %} width="60%" height="40%"></center>
+        </div>
+    </div>
+    <br><br><br>
+    <footer align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    UCL INDIA:- Copyrights Reserved
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Email Us: ucllive@gmail.com
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    Contact Us: +91 900800123
+    </footer>
+    {% endblock body %}
